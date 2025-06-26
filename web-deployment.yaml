@@ -13,12 +13,16 @@ spec:
         app: book-web
     spec:
       containers:
-        - name: book-web
-          image: your-dockerhub-username/book-management-web:latest
+        - name: book-backend
+          image: hafsah002/book-management-backend:latest
           ports:
             - containerPort: 5555
           env:
             - name: MONGO_URL
               value: "mongodb://mongo:27017/bookdb"
             - name: JWT_SECRET
-              value: "your_jwt_secret" 
+              value: "mySuperSecretJWTKey123"
+        - name: book-frontend
+          image: yourdockerhubusername/book-management-frontend:latest
+          ports:
+            - containerPort: 80 
