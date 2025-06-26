@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: book-web
+  template:
+    metadata:
+      labels:
+        app: book-web
+    spec:
+      containers:
+        - name: book-web
+          image: your-dockerhub-username/book-management-web:latest
+          ports:
+            - containerPort: 5555
+          env:
+            - name: MONGO_URL
+              value: "mongodb://mongo:27017/bookdb"
+            - name: JWT_SECRET
+              value: "your_jwt_secret" 
