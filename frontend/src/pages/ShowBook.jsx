@@ -23,7 +23,7 @@ const ShowBook = () => {
     }
 
     axios
-      .get(`http://localhost:5555/profilebooks/${id}`, {
+              .get(`/api/profilebooks/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

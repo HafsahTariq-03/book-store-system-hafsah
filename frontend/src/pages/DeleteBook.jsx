@@ -22,7 +22,7 @@ const DeleteBook = () => {
     }
 
     axios
-      .delete(`http://localhost:5555/profilebooks/${id}`, {
+              .delete(`/api/profilebooks/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

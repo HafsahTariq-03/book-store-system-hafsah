@@ -35,7 +35,7 @@ const Home = () => {
 
     // Fetch all profile books
     axios
-      .get('http://localhost:5555/profilebooks', {
+              .get('/api/profilebooks', {
         headers: {
           Authorization: `Bearer ${token}`
         }

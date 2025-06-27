@@ -24,7 +24,7 @@ const EditBook = () => {
       return;
     }
 
-    axios.get(`http://localhost:5555/profilebooks/${id}`, {
+          axios.get(`/api/profilebooks/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -62,7 +62,7 @@ const EditBook = () => {
     }
 
     axios
-      .put(`http://localhost:5555/profilebooks/${id}`, data, {
+              .put(`/api/profilebooks/${id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`
         }
