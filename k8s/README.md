@@ -6,10 +6,9 @@ This directory contains Kubernetes YAML files and deployment scripts for deployi
 
 Before deploying, ensure you have the following installed on your Ubuntu VM:
 
-1. **Docker**: For building container images
+1. **Docker**: For building container images and as minikube driver
 2. **Minikube**: Lightweight Kubernetes implementation
 3. **kubectl**: Kubernetes command-line tool
-4. **VirtualBox**: For minikube driver (or other supported drivers)
 
 ### Installation Commands (Ubuntu)
 
@@ -25,8 +24,7 @@ sudo usermod -aG docker $USER
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-# Install VirtualBox
-sudo apt install -y virtualbox virtualbox-ext-pack
+# Note: VirtualBox not needed when using docker driver
 
 # Install minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -78,7 +76,7 @@ cd k8s
 
 ```bash
 # 1. Start minikube
-minikube start --driver=virtualbox --memory=4096 --cpus=2
+minikube start --driver=docker --memory=4096 --cpus=2
 
 # 2. Enable metrics server for HPA
 minikube addons enable metrics-server
@@ -253,7 +251,7 @@ The deployment uses the following environment variables:
 
 - **Minimum**: 4GB RAM, 2 CPUs for minikube
 - **Recommended**: 8GB RAM, 4 CPUs for better performance
-- **Storage**: 10GB for minikube VM + application data
+- **Storage**: 10GB for Docker containers + application data
 
 ## Next Steps
 

@@ -17,6 +17,7 @@ spec:
       containers:
       - name: backend
         image: book-store-backend:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 5555
         env:

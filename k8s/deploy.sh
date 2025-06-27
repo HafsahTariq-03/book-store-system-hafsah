@@ -28,7 +28,7 @@ print_error() {
 print_status "Checking minikube status..."
 if ! minikube status | grep -q "Running"; then
     print_warning "Minikube is not running. Starting minikube..."
-    minikube start --driver=virtualbox --memory=4096 --cpus=2
+    minikube start --driver=docker --memory=4096 --cpus=2
     if [ $? -ne 0 ]; then
         print_error "Failed to start minikube. Please check your setup."
         exit 1

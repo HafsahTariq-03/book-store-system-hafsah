@@ -17,6 +17,7 @@ spec:
       containers:
       - name: frontend
         image: book-store-frontend:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
         volumeMounts:
